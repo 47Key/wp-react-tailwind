@@ -1,0 +1,27 @@
+{
+  "name": "ryleys-react-tailwind-wordpress",
+  "version": "0.0.1",
+  "description": "A basic theme to implement React & Tailwind inside of a Wordpress Theme",
+  "main": "index.js",
+  "scripts": {
+    "preview": "npm-run-all --parallel sync wpstart twwatch",
+    "sync": "browser-sync start -p 'myexample.local' --files '**/*.php' 'build/*.js' 'build/*.css'",
+    "buildwp": "wp-scripts build",
+    "build": "npm-run-all --sequential buildwp twbuild",
+    "wpstart": "wp-scripts start",
+    "start": "npm-run-all --parallel wpstart twwatch",
+    "twbuild": "tailwindcss -i ./src/index.css -o ./build/index.css --minify",
+    "twwatch": "tailwindcss -i ./src/index.css -o ./build/index.css --watch --minify",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.2",
+    "@wordpress/scripts": "^23.3.0",
+    "browser-sync": "^2.27.10",
+    "npm-run-all": "^4.1.5",
+    "tailwindcss": "^3.1.4"
+  }
+}
